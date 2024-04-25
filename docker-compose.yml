@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: mongo:latest
+    volumes: 
+     - database:/data/db
+    ports:
+      - 27018:27017
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - 8088:8088
+
+volumes:
+  database:
