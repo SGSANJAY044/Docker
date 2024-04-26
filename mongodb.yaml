@@ -25,10 +25,12 @@ kind: Service
 metadata:
  name: mongolearn-service
 spec:
+ externalIPs:
+ - 192.168.49.2
  selector:
    app: mongolearn
  type: LoadBalancer
  ports:
  - protocol: TCP
-   port: 3000   
+   port: 27018   
    targetPort: 27017
